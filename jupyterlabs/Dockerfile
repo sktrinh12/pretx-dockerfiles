@@ -16,7 +16,12 @@ RUN Rscript -e "install.packages(c('FactoMineR', 'Rtsne', 'dotenv', 'plotly'), r
 
 RUN Rscript -e "devtools::install_github('ricardo-bion/ggradar', dependencies = TRUE)"
 
-RUN pip install jupyterlab_vim jupyterlab-theme-solarized-dark
+RUN pip install \
+    torch \
+    transformers \
+    datasets \
+    jupyterlab_vim \
+    jupyterlab-theme-solarized-dark
 
 RUN jupyter labextension enable jupyterlab_vim && \
     jupyter labextension enable jupyterlab-theme-solarized-dark
